@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: ./docker/web
+    volumes:
+     - ./:/var/www/html/
+    ports:
+      - 8089:80
+  db:
+    image: mysql:latest
+    volumes:
+      - db:/var/lib/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=twitter
+      - MYSQL_USER=superuser
+      - MYSQL_PASSWORD=1234
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8091:80
+    environment:
+      - PMA_HOST=db
+    depends_on:
+      - db
+volumes:
+  db:
+
