@@ -18,7 +18,7 @@ $(document).ready(function(){
 </head>
 <div class="page">
 <nav>
-<?php include("../components/nav.php");?>    
+<?php include("../components/nav.php"); navGenerator("registration");?> 
 </nav>
 <body>
 <div class="container">

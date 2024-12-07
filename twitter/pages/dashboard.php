@@ -16,7 +16,7 @@ $(document).ready(function(){
 </head>
 <body>
 <nav>
-<?php include("../components/nav.php");?>    
+<?php include("../components/nav.php"); navGenerator();?>    
 </nav>
 <?php
 echo '

@@ -5,7 +5,7 @@
 </head>
 <div class="page">
 <nav>
-<?php include("../components/nav.php");?>    
+<?php include("../components/nav.php"); navGenerator("login");?>    
 </nav>
 <body>
 <div class="container">
