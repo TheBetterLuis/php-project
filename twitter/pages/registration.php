@@ -1,6 +1,3 @@
-<?php
-include("../database.php");
-?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 $(document).ready(function(){
@@ -19,8 +16,13 @@ $(document).ready(function(){
 <head>
     <link rel="stylesheet" href="../styles/registration.css">
 </head>
+<div class="page">
+<nav>
+<?php include("../components/nav.php");?>    
+</nav>
 <body>
 <div class="container">
+    <h2>Registration</h2>
  <form id="registerForm">
  <label for="username">Username</label>
  <input type="text" id="username" name="username" required>
@@ -34,5 +36,9 @@ $(document).ready(function(){
 </div>
 </div>
 </body>
+<footer>
+<?php include("../components/footer.php");?>    
+</footer>
+</div>
 </html>
 

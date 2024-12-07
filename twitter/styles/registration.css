@@ -1,4 +1,8 @@
 /* styles.css */
+.page{
+   display: grid; 
+   grid-template-columns: 1fr;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #222;
