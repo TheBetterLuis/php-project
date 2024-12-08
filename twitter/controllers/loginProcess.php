@@ -2,7 +2,6 @@
 session_start();
 
 include("../database.php");
-include("../controllers/utils.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usernameOrEmail = $_POST['username'];
     $password = $_POST['password'];
@@ -19,8 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            echo '<script>window.location.href="dashboard.php"
-</script>';
+echo '<script>window.location.href="dashboard.php"</script>';
         } else {
 	          echo '<p class="error">Invalid password. Please try again.</p>';
         }

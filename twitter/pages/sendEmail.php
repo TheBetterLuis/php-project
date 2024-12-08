@@ -8,13 +8,13 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host='smtp.gmail.com';
 $mail->SMTPAuth=true;
-$mail->Username='yourmail@gmail.com';
+$mail->Username='luismiguelromero3096@gmail.com';
 // application password goes here, not the actual email password
-$mail->Password='appPassword';
+$mail->Password='fliy exgj ufpu okqv';
 $mail->SMTPSecure='ssl';
 $mail->Port=465;
 
-$mail->setFrom('yourmail@gmail.com');
+$mail->setFrom('luismiguelromero3096@gmail.com');
 $mail->addAddress('receiveremail@gmail.com');
 $mail->isHTML(true);
 $mail->Subject='Test from php';

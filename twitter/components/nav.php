@@ -3,9 +3,8 @@ function navGenerator($page=null){
     //since this gets generated to the pages that are located in pages folder, when linking the pages keep in mind they are in the same folder
     
     $returnValue = '<li><a href="dashboard.php">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Messages</a></li>
-            <li><a href="#">Notifications</a></li>';
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="../controllers/logOut.php">Log Out</a></li>';
 
     if($page === "login"){
 $returnValue = '<li><a href="registration.php">Register</a></li>';
