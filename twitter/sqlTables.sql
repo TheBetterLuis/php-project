@@ -36,3 +36,17 @@ CREATE TABLE Comments (
     FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
 );
 
+-- Dummy posts for user lolo (user_id 81)
+INSERT INTO Posts (user_id, content) VALUES
+(81, 'Exploring the beautiful landscapes of Venezuela!'),
+(81, 'Just finished reading a fantastic book about AI.'),
+(81, 'Enjoying a peaceful evening by the lake.'),
+(81, 'Visited the local art gallery today. Highly recommend!');
+
+-- Dummy posts for user luis (user_id 82)
+INSERT INTO Posts (user_id, content) VALUES
+(82, 'Had an amazing hike in the mountains.'),
+(82, 'Cooking up some delicious Venezuelan cuisine!'),
+(82, 'Attended a tech conference and learned a lot.'),
+(82, 'Relaxing with some great music this evening.');
+

@@ -52,6 +52,7 @@ $sql->bind_param("sss",$userName,$email,$passcode);
 if($sql->execute()===TRUE){
 sendEmail($email,$userName);
 echo '<p class="success">Registration successful!</p>';
+echo '<script>window.location.href="login.php"</script>';
 }else{
 	if($connection->errno == 1062){
 	echo '<p class="error">Username or email already exists. Please try again :)</p>';

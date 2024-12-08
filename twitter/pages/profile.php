@@ -14,10 +14,16 @@ echo '<script>window.location.href="login.php"</script>';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 $(document).ready(function(){
-    $("#button").click(function(){
-    $("#test").load("rng.php");
+
+    $("#deleteAccountButton").click(function(){
+if(confirm("Are you sure you want to delete your account? This action cannot be undone.")){
+    $.post("../controllers/eraseAccount.php",{user_id: <?php echo $_SESSION['user_id'];?>},function(response){
+$(".message").html(response);
+})
+}
 });
 });
+
 </script>
 
 </head>
@@ -27,19 +33,12 @@ $(document).ready(function(){
 </nav>
 <body>
 <div class="container">
-<?php
-echo '
-<div id="test">
-<p>here comes the numbers</p>
-</div>'
-;
-?>
-<button id="button">click to change</button>
+<button id="deleteAccountButton">Erase Account</button>
 
 <main>
 <?php include("../components/placeholder.php");?>    
 </main>
-
+<div class="message"></div>
 </div>
 </body>
 <footer>
