@@ -2,14 +2,14 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	$userName = $_POST['username'];
 	$email = $_POST['email'];
-	$password= password_hash($_POST['password'],PASSWORD_DEFAULT);
+	$passcode= password_hash($_POST['password'],PASSWORD_DEFAULT);
 
 include("../database.php");
 
 try{
 
 $sql = $connection->prepare("INSERT INTO Users (username,email,password,role,creationDate,updateDate) VALUES (?,?,?,'user',NOW(),NOW())");
-$sql->bind_param("sss",$userName,$email,$password);
+$sql->bind_param("sss",$userName,$email,$passcode);
 if($sql->execute()===TRUE){
 echo '<p class="success">Registration successful!</p>';
 }else{
