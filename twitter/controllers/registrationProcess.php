@@ -19,10 +19,10 @@ echo '<p class="success">Registration successful!</p>';
 	echo '<p class="error">Registration error :( Please try again later.</p>';
 	}
 }
-$connection->close();
 }catch (mysqli_sql_exception $e){
-	echo '<p class="error">Username or email already exists. Please try again :)</p>';
+	echo '<p class="error">Username or email already exists. Please try again :)</p>' . $e->getMessage();
  	error_log($e->getMessage()); // Log the error message to a file for debugging
 }
+$connection->close();
 }
 ?>

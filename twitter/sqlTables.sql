@@ -4,12 +4,12 @@ CREATE DATABASE twitter;
 -- Use the newly created database
 USE twitter;
 
--- Create the Users table
 CREATE TABLE Users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
-    role VARCHAR(50),
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'user',
     creationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
