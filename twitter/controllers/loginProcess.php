@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Set session variables
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("location: ../pages/dashboard.php");
+//            header("location: ../pages/dashboard.php");
         } else {
             $error = "Invalid password. Please try again.";
         }
