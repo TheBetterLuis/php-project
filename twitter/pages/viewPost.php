@@ -68,14 +68,14 @@ if ($commentResult->num_rows > 0) {
     echo '<p>No comments yet. Be the first to comment!</p>'; } $commentSql->close();
 ?>
 
-
 </div>
 </div>
 </body>
+</div>
 <footer>
     <?php include("../components/footer.php");?>    
 </footer>
-</div>
+
 </html>
 
 <?php
