@@ -13,6 +13,7 @@ $result = $sql->get_result();
     while ($row = $result->fetch_assoc()){
         $formattedDate = date('H:i d M Y', strtotime($row['creationDate']));
 ?>
+<link rel="stylesheet" href="../styles/dashboard.css">
 <link rel="stylesheet" href="../styles/singleUserFeed.css">
     <div class="post">
         <div class="post-header">

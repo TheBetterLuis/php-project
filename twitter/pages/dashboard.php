@@ -56,6 +56,7 @@ $(".delete").click(function(){
 <?php echo '<h2>Welcome back '. ucfirst($_SESSION['username']).'</h2>'; ?>
 <main>
 <div class="message"></div>
+<?php include("../components/searchbar.php"); ?>
 <?php include("../components/newPostForm.php"); ?>
 <?php include("../components/postsFeed.php"); ?>
 </main>
