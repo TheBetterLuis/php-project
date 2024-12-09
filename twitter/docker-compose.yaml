@@ -11,6 +11,7 @@ services:
     volumes:
       - db:/var/lib/mysql/
     environment:
+      - TZ=America/Caracas
       - MYSQL_ROOT_PASSWORD=1234
       - MYSQL_DATABASE=twitter
       - MYSQL_USER=superuser

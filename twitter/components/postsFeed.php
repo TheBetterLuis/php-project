@@ -1,7 +1,8 @@
 <?php
+
 include("../database.php");
     //$sql = $connection->prepare("SELECT * FROM Posts");
-$sql = $connection->prepare("SELECT p.id, p.content, p.creationDate, p.updateDate, u.username FROM Posts p INNER JOIN Users u ON p.user_id = u.id");
+$sql = $connection->prepare("SELECT p.id, p.content, p.creationDate, p.updateDate, u.username FROM Posts p INNER JOIN Users u ON p.user_id = u.id ORDER BY p.creationDate DESC");
     $sql->execute();
     $result = $sql->get_result();
 

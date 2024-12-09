@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../timezone.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $userId = $_SESSION['user_id'];
     $postContent = $_POST['post-content'];
@@ -22,4 +23,5 @@ echo '<p class="success">Post created successfully!</p>';
 }
 $connection->close();
 }
+echo "<script>window.location.href=window.location.href</script>";
 ?>

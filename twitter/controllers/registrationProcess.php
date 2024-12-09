@@ -1,4 +1,6 @@
 <?php
+include("../timezone.php");
+
 use PHPMailer\PHPMailer\PHPMailer;
 require '../phpmailer/src/Exception.php';
 require '../phpmailer/src/PHPMailer.php';

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../timezone.php");
 include("../database.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
