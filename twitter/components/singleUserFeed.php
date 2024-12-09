@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../styles/dashboard.css">
+<link rel="stylesheet" href="../styles/singleUserFeed.css">
+
 <?php
 if (session_status()== PHP_SESSION_NONE){
 session_start();
@@ -13,8 +16,6 @@ $result = $sql->get_result();
     while ($row = $result->fetch_assoc()){
         $formattedDate = date('H:i d M Y', strtotime($row['creationDate']));
 ?>
-<link rel="stylesheet" href="../styles/dashboard.css">
-<link rel="stylesheet" href="../styles/singleUserFeed.css">
     <div class="post">
         <div class="post-header">
             <span class="username"><?php echo $row['username']; ?></span>
@@ -40,6 +41,8 @@ echo '<span class="delete" data-post-id="'.$row['id'].'" >Delete</span>';
     echo "Error fetching posts..." . $sql->error;
 }
 $sql->close();
+
 ?>
+
 
 
