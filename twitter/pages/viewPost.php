@@ -53,7 +53,7 @@ $post = $result->fetch_assoc();
  <h2>Comments</h2> 
 <div class="comments"> 
 <?php
-$commentSql = $connection->prepare("SELECT c.content, c.creationDate, u.username FROM Comments c INNER JOIN Users u ON c.user_id = u.id WHERE c.post_id = ? ORDER BY c.creationDate DESC");
+$commentSql = $connection->prepare("SELECT c.id, c.content, c.creationDate, u.username FROM Comments c INNER JOIN Users u ON c.user_id = u.id WHERE c.post_id = ? ORDER BY c.creationDate DESC");
 $commentSql->bind_param("i", $postId); $commentSql->execute();
 $commentResult = $commentSql->get_result(); 
 
@@ -62,10 +62,17 @@ if ($commentResult->num_rows > 0) {
         $commentDate = date('H:i d M Y', strtotime($commentRow['creationDate'])); echo '<div class="comment">';
         echo '<span class="username"> Comment by ' . htmlspecialchars($commentRow['username']) . '</span>'; 
         echo '<span class="timestamp"><br> ' . $commentDate . '</span>';
+if($commentRow['username']===$_SESSION['username']){
+echo '<br><span class="delete-comment" data-comment-id="' . $commentRow['id'] . '">delete</span>';
+        }
+
         echo '<p class="content">  ' . htmlspecialchars($commentRow['content']) . '</p>'; 
-        echo '</div>';
+
+                echo '</div>';
     } } else {
-    echo '<p>No comments yet. Be the first to comment!</p>'; } $commentSql->close();
+    echo '<p>No comments yet. Be the first to comment!</p>';
+        }
+    $commentSql->close();
 ?>
 
 </div>
@@ -83,6 +90,18 @@ $sql->close();
 $connection->close();
 ?>
 
+<script>
+  document.querySelectorAll('.delete-comment').forEach(button => {
+ button.addEventListener('click', function() {
+ var commentId = this.getAttribute('data-comment-id'); 
+if (confirm('Are you sure you want to delete this comment? This action cannot be undone.')) { 
+var formData = new FormData();
+ formData.append('comment_id', commentId);
+ fetch('../controllers/deleteComment.php', { method: 'POST', body: formData }) .then(response => response.text()) .then(data => { document.querySelector('.message').innerHTML = data; 
+if (data.includes('success')) { this.closest('.comment').remove();
+ } }) .catch(error => console.error('Error:', error));
+ } }); });
+ </script>
 <style>
 #comment-content{
     width: 100%;
@@ -99,11 +118,19 @@ $connection->close();
     color: #888;
 }
 .content{
-font-size: large;
+font-size: x-large;
 margin-top: 4px;
 }
 .post-text{
 font-size: x-large;
 }
+
+.delete-comment{
+	color: #c82448;
+}
+.delete-comment:hover{
+	color: #fff;
+}
+
 
 </style>
