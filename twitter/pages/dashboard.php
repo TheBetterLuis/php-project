@@ -16,6 +16,15 @@ $(document).ready(function(){
     $("#button").click(function(){
     $("#test").load("rng.php");
 });
+
+    $("#postButton").click(function(){
+    event.preventDefault();
+    var formData = $("#new-post-form").serialize();
+    $.post("../controllers/newPost.php",formData, function(response){
+    $(".message").html(response);
+});
+});
+
 });
 </script>
 
@@ -29,11 +38,11 @@ $(document).ready(function(){
 </nav>
 <body>
 <div class="container">
-<?php echo '<h2>Welcome back,'. $_SESSION['user_id'].'</h2>'; ?>
-
-<?php include("../components/newPostForm.php"); ?>
+<?php echo '<h2>Welcome back '. ucfirst($_SESSION['username']).'</h2>'; ?>
 <main>
-<?php include("../components/placeholder.php");?>    
+<div class="message"></div>
+<?php include("../components/newPostForm.php"); ?>
+<?php include("../components/postsFeed.php"); ?>
 </main>
 
 </div>

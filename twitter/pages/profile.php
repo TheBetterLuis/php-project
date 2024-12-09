@@ -22,7 +22,6 @@ $(".message").html(response);
 })
 }
 });
-
     $("#postButton").click(function(){
     event.preventDefault();
     var formData = $("#new-post-form").serialize();
@@ -30,11 +29,7 @@ $(".message").html(response);
     $(".message").html(response);
 });
 });
-
-
-
 });
-
 </script>
 
 </head>
@@ -44,10 +39,12 @@ $(".message").html(response);
 </nav>
 <body>
 <div class="container">
+<?php echo '<h2>'. ucfirst($_SESSION['username']).', you can view your posts here</h2>'; ?>
 <button id="deleteAccountButton">Erase Account</button>
-<?php include("../components/newPostForm.php");?>
 <main>
-<?php include("../components/placeholder.php");?>    
+<?php include("../components/newPostForm.php");?>
+<?php include("../components/singleUserFeed.php");?>
+
 </main>
 <div class="message"></div>
 </div>
