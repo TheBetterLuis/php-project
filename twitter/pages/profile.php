@@ -30,6 +30,19 @@ $(".message").html(response);
     $(".message").html(response);
 });
 });
+
+$(".delete").click(function(){
+        var postId = $(this).data("post-id"); 
+        if(confirm("Are you sure you want to delete this post? This action cannot be undone.")){
+            $.post("../controllers/deletePost.php", { post_id: postId }, function(response){
+                $(".message").html(response);
+            });
+        }
+    });
+
+
+
+
 });
 </script>
 

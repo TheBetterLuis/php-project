@@ -21,7 +21,7 @@ $sql = $connection->prepare("SELECT p.id, p.content, p.creationDate, p.updateDat
 <span class="comments">Comments</span>
 <?php if($row['username']=== $_SESSION['username']){
 echo '<span class="edit">Edit</span>
-<span class="delete">Delete</span>';
+<span class="delete" data-post-id="'.$row['id'].'" >Delete</span>';
         } ?>
             </div>
 <span class="timestamp"><?php echo '<br>'. $formattedDate; ?></span>
