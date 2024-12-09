@@ -2,6 +2,11 @@
 session_start();
 include("../database.php");
 
+if(!isset($_SESSION['user_id'])){
+echo '<script>window.location.href="login.php"</script>';
+ exit;
+}
+
 if (!isset($_GET['post_id'])) {
     echo "No post ID specified.";
     exit;
