@@ -29,6 +29,9 @@ $(document).ready(function(){
 </nav>
 <body>
 <div class="container">
+<?php echo '<h2>Welcome back,'. $_SESSION['user_id'].'</h2>'; ?>
+
+<?php include("../components/newPostForm.php"); ?>
 <main>
 <?php include("../components/placeholder.php");?>    
 </main>

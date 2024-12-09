@@ -1,0 +1,30 @@
+.post-div{
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#post-content {
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #c82448;
+    border-radius: 5px;
+    padding: 5px;
+    resize: vertical;
+}
+
+#postButton {
+    background-color: #c82448;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}

@@ -22,6 +22,17 @@ $(".message").html(response);
 })
 }
 });
+
+    $("#postButton").click(function(){
+    event.preventDefault();
+    var formData = $("#new-post-form").serialize();
+    $.post("../controllers/newPost.php",formData, function(response){
+    $(".message").html(response);
+});
+});
+
+
+
 });
 
 </script>
@@ -34,7 +45,7 @@ $(".message").html(response);
 <body>
 <div class="container">
 <button id="deleteAccountButton">Erase Account</button>
-
+<?php include("../components/newPostForm.php");?>
 <main>
 <?php include("../components/placeholder.php");?>    
 </main>
