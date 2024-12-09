@@ -19,8 +19,9 @@ $sql = $connection->prepare("SELECT p.id, p.content, p.creationDate, p.updateDat
         </div>
 <div class="post-footer">
                <div class="post-actions">
-<span class="comments">Comments</span>
-<?php if($row['username']=== $_SESSION['username']){
+<?php
+echo '<a href="viewPost.php?post_id=' . $row['id'] . '" class="comments">Comments&nbsp;&nbsp;</a>';
+ if($row['username']=== $_SESSION['username']){
 echo '<a href="editPost.php?post_id=' . $row['id'] . '" class="edit">Edit</a>';
 echo '<span class="delete" data-post-id="'.$row['id'].'" >Delete</span>';
         } ?>
