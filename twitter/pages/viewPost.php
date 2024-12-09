@@ -39,7 +39,7 @@ $post = $result->fetch_assoc();
 <div class="comment-post-container">
 <h1>Post by <?php  echo htmlspecialchars($post['username']);?></h1>
     <div class="post-content">
-        <p><?php echo htmlspecialchars($post['content']); ?></p>
+        <p class="post-text"><?php echo htmlspecialchars($post['content']); ?></p>
     </div>
 
     <h1>Add Comment</h1>
@@ -60,9 +60,9 @@ $commentResult = $commentSql->get_result();
 if ($commentResult->num_rows > 0) { 
     while ($commentRow = $commentResult->fetch_assoc()) {
         $commentDate = date('H:i d M Y', strtotime($commentRow['creationDate'])); echo '<div class="comment">';
-        echo '<span class="username">' . htmlspecialchars($commentRow['username']) . '</span>'; 
-        echo '<span class="timestamp">' . $commentDate . '</span>';
-        echo '<p>' . htmlspecialchars($commentRow['content']) . '</p>'; 
+        echo '<span class="username"> Comment by ' . htmlspecialchars($commentRow['username']) . '</span>'; 
+        echo '<span class="timestamp"><br> ' . $commentDate . '</span>';
+        echo '<p class="content">  ' . htmlspecialchars($commentRow['content']) . '</p>'; 
         echo '</div>';
     } } else {
     echo '<p>No comments yet. Be the first to comment!</p>'; } $commentSql->close();
@@ -83,3 +83,27 @@ $sql->close();
 $connection->close();
 ?>
 
+<style>
+#comment-content{
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #c82448;
+    border-radius: 5px;
+    padding: 5px;
+    resize: vertical;
+		font-size: x-large;
+}
+.username,.timestamp{
+    color: #888;
+}
+.content{
+font-size: large;
+margin-top: 4px;
+}
+.post-text{
+font-size: x-large;
+}
+
+</style>
