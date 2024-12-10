@@ -11,13 +11,13 @@ $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host='smtp.gmail.com';
 $mail->SMTPAuth=true;
-$mail->Username='luismiguelromero3096@gmail.com';
+$mail->Username='your email';
 // application password goes here, not the actual email password
-$mail->Password='fliy exgj ufpu okqv';
+$mail->Password='your app passwords';
 $mail->SMTPSecure='ssl';
 $mail->Port=465;
 
-$mail->setFrom('luismiguelromero3096@gmail.com');
+$mail->setFrom('your email');
 $mail->addAddress($newUserEmail);
 $mail->isHTML(true);
 $mail->Subject='Welcome to Our Website!';
